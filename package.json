@@ -2,6 +2,7 @@
   "name": "exelentic",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://GustavoAcacioDev.github.io/exelentic",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
