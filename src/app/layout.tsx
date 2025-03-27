@@ -3,7 +3,7 @@ import "@/app/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata = {
-  title: "AutomateX - Business Process Automation",
+  title: "Exelentic",
   description:
     "Transform your workflow with intelligent automation. Reduce manual tasks, eliminate errors, and focus on what matters most.",
 }

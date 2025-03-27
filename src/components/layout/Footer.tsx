@@ -1,18 +1,34 @@
 "use client"
 
 import Link from "next/link"
-import { Cog } from "lucide-react"
+import { Cog, ArrowUp } from "lucide-react"
+import { useState, useEffect } from "react"
 
 export default function Footer() {
+    const [showScrollTop, setShowScrollTop] = useState(false)
+
+    // Show scroll to top button when scrolled down
+    useEffect(() => {
+        const handleScroll = () => {
+            setShowScrollTop(window.scrollY > 500)
+        }
+
+        window.addEventListener("scroll", handleScroll)
+        return () => window.removeEventListener("scroll", handleScroll)
+    }, [])
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+
     return (
-        <footer className="w-full border-t bg-background">
-            <div className="container mx-auto flex flex-col gap-6 py-8 md:py-12 lg:flex-row lg:justify-between lg:py-16">
+        <footer className="w-full border-t bg-blue-900 text-white">
+            <div className="container flex flex-col gap-6 py-8 md:py-12 lg:flex-row lg:justify-between lg:py-16">
                 <div className="flex flex-col gap-4 lg:w-1/3 animate-fadeIn">
                     <Link href="/" className="flex items-center space-x-2">
-                        <Cog className="h-6 w-6 text-blue-600 animate-spin-slow" />
-                        <span className="inline-block font-bold">AutomateX</span>
+                        <span className="inline-block font-bold text-primary text-xl">Exelentic</span>
                     </Link>
-                    <p className="text-muted-foreground">
+                    <p className="text-blue-100">
                         Transforming business processes through intelligent automation. Reduce manual tasks, eliminate errors, and
                         focus on what matters most.
                     </p>
@@ -81,7 +97,7 @@ export default function Footer() {
                             <Link
                                 key={social.label}
                                 href="#"
-                                className="text-muted-foreground hover:text-foreground transition-colors duration-300 hover:scale-110 transform animate-fadeIn"
+                                className="text-blue-300 hover:text-white transition-colors duration-300 hover:scale-110 transform animate-fadeIn"
                                 style={{ animationDelay: `${index * 200}ms` }}
                             >
                                 {social.icon}
@@ -93,20 +109,31 @@ export default function Footer() {
                 <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4 lg:w-2/3">
                     {[
                         {
-                            title: "Product",
-                            links: ["Features", "Pricing", "Integrations", "Changelog"],
+                            title: "Learn More",
+                            links: ["About Us", "Values", "Career"],
                         },
                         {
-                            title: "Resources",
-                            links: ["Documentation", "Guides", "Case Studies", "Blog"],
+                            title: "Services",
+                            links: ["Implementation", "Project", "Full-Service"],
                         },
                         {
-                            title: "Company",
-                            links: ["About", "Careers", "Contact", "Partners"],
+                            title: "Locations",
+                            links: [
+                                "Düsseldorf (D)",
+                                "Munich (D)",
+                                "Zug (CH)",
+                                "Phone: +49 89 958990 281",
+                                <span key="email">
+                                    Email:{" "}
+                                    <a href="mailto:info@exelentic.com" className="text-blue-300 hover:text-white">
+                                        info@exelentic.com
+                                    </a>
+                                </span>,
+                            ],
                         },
                         {
                             title: "Legal",
-                            links: ["Privacy Policy", "Terms of Service", "Cookie Policy", "Security"],
+                            links: ["Imprint", "Privacy Policy"],
                         },
                     ].map((section, sectionIndex) => (
                         <div
@@ -118,16 +145,17 @@ export default function Footer() {
                             <ul className="space-y-2">
                                 {section.links.map((link, linkIndex) => (
                                     <li
-                                        key={link}
+                                        key={typeof link === "string" ? link : `link-${linkIndex}`}
                                         className="animate-fadeIn"
                                         style={{ animationDelay: `${sectionIndex * 200 + linkIndex * 100}ms` }}
                                     >
-                                        <Link
-                                            href="#"
-                                            className="text-muted-foreground hover:text-foreground transition-colors duration-300"
-                                        >
-                                            {link}
-                                        </Link>
+                                        {typeof link === "string" ? (
+                                            <Link href="#" className="text-blue-100 hover:text-white transition-colors duration-300">
+                                                {link}
+                                            </Link>
+                                        ) : (
+                                            link
+                                        )}
                                     </li>
                                 ))}
                             </ul>
@@ -135,16 +163,26 @@ export default function Footer() {
                     ))}
                 </div>
             </div>
-            <div className="border-t py-6">
-                <div className="container mx-auto flex flex-col items-center justify-between gap-4 md:flex-row">
-                    <p className="text-center text-sm text-muted-foreground md:text-left animate-fadeIn">
-                        © {new Date().getFullYear()} AutomateX. All rights reserved.
+            <div className="border-t border-blue-800 py-6">
+                <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
+                    <p className="text-center text-sm text-blue-200 md:text-left animate-fadeIn">
+                        © {new Date().getFullYear()} Exelentic GmbH. All rights reserved.
                     </p>
-                    <p className="text-center text-sm text-muted-foreground md:text-left animate-fadeIn animation-delay-500">
-                        Made with <span className="animate-pulse-subtle text-red-500">❤️</span> for businesses worldwide
+                    <p className="text-center text-sm text-blue-200 md:text-left animate-fadeIn animation-delay-500">
+                        Made with <span className="animate-pulse-subtle text-red-400">❤️</span> for businesses worldwide
                     </p>
                 </div>
             </div>
+
+            {/* Scroll to top button */}
+            <button
+                onClick={scrollToTop}
+                className={`fixed bottom-6 right-6 p-4 bg-blue-500 text-white rounded-full shadow-lg transition-all duration-300 ${showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+                    }`}
+                aria-label="Scroll to top"
+            >
+                <ArrowUp className="h-5 w-5" />
+            </button>
         </footer>
     )
 }

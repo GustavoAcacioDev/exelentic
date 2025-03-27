@@ -12,6 +12,8 @@ import Testimonials from "@/components/sections/Testimonials"
 import Contact from "@/components/sections/Contact"
 import CTA from "@/components/sections/CTA"
 import { SectionVisibilityProvider } from "@/context/SectionVisibilityContext"
+import AutomationComparison from "@/components/sections/AutomationComparison"
+import Partners from "@/components/sections/Partners"
 
 export default function HomeClient() {
   return (
@@ -20,15 +22,14 @@ export default function HomeClient() {
         <Header />
         <main className="flex-1">
           <Hero />
-          <Features />
-          <HowItWorks />
           <Company />
+          <Partners />
+          <AutomationComparison />
+          <HowItWorks />
           <Benefits />
-          <Results />
           <Testimonials />
           <Careers />
           <Contact />
-          <CTA />
         </main>
         <Footer />
       </div>

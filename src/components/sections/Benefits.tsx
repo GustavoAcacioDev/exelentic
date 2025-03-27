@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { useSectionVisibility } from "@/context/SectionVisibilityContext"
-import { BarChart2 } from "lucide-react"
+import { BarChart2, Check, CirclePlus, Grid3x3, Shield, Users } from "lucide-react"
 
 export default function Benefits() {
     const { isVisible, setRef } = useSectionVisibility()
@@ -15,111 +15,27 @@ export default function Benefits() {
                 "Automation reduces the time spent on tasks and allows your team to focus on more value-added activities.",
         },
         {
-            icon: () => (
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-6 w-6 text-blue-600"
-                >
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 8v8" />
-                    <path d="M8 12h8" />
-                </svg>
-            ),
+            icon: CirclePlus,
             title: "Cost Savings",
             description: "Automation helps lower operational costs by minimizing manual processes.",
         },
         {
-            icon: () => (
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-6 w-6 text-blue-600"
-                >
-                    <path d="M20 6 9 17l-5-5" />
-                </svg>
-            ),
+            icon: Check,
             title: "Higher Accuracy",
             description: "Automated processes minimize human errors and lead to more consistent results.",
         },
         {
-            icon: () => (
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-6 w-6 text-blue-600"
-                >
-                    <rect width="18" height="18" x="3" y="3" rx="2" />
-                    <path d="M3 9h18" />
-                    <path d="M3 15h18" />
-                    <path d="M9 3v18" />
-                    <path d="M15 3v18" />
-                </svg>
-            ),
+            icon: Grid3x3,
             title: "Scalability",
             description: "Automation enables your business to grow efficiently while maintaining the same quality of output.",
         },
         {
-            icon: () => (
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-6 w-6 text-blue-600"
-                >
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
-            ),
+            icon: Users,
             title: "Customization",
             description: "Our solutions are flexible and tailored to the specific needs of your business.",
         },
         {
-            icon: () => (
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-6 w-6 text-blue-600"
-                >
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
-                </svg>
-            ),
+            icon: Shield,
             title: "Increased Security",
             description: "Using state-of-the-art technologies, we provide maximum security for your data and processes.",
         },
@@ -169,7 +85,7 @@ export default function Benefits() {
 
                     {/* Benefits grid */}
                     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 relative z-10">
-                        {/* {benefits.map((benefit, index) => (
+                        {benefits.map((benefit, index) => (
                             <div
                                 key={benefit.title}
                                 className={`group bg-white rounded-xl p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-blue-50 ${isVisible.benefits ? "animate-fadeIn" : "opacity-0"}`}
@@ -177,18 +93,14 @@ export default function Benefits() {
                             >
                                 <div className="flex items-center mb-4">
                                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 group-hover:bg-blue-200 transition-colors duration-300">
-                                        {typeof benefit.icon === "function" ? (
-                                            <benefit.icon />
-                                        ) : (
-                                            <benefit.icon className="h-6 w-6 text-blue-600" />
-                                        )}
+                                        {<benefit.icon className="h-6 w-6 text-blue-600" />}
                                     </div>
                                     <h3 className="ml-4 text-xl font-bold">{benefit.title}</h3>
                                 </div>
                                 <p className="text-muted-foreground">{benefit.description}</p>
                                 <div className="mt-4 h-1 w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"></div>
                             </div>
-                        ))} */}
+                        ))}
                     </div>
 
                     {/* Animated counter section */}
