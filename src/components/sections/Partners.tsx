@@ -4,7 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useSectionVisibility } from "@/context/SectionVisibilityContext"
-import { Award, Building, Cpu, Briefcase, Factory } from "lucide-react"
+import { Award, Cpu, Briefcase, Factory } from "lucide-react"
 
 export default function Partners() {
   const { isVisible, setRef } = useSectionVisibility()

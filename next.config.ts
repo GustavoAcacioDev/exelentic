@@ -1,14 +1,10 @@
-import type { NextConfig } from "next";
-const isProd = process.env.NODE_ENV === 'production';
-const nextConfig: NextConfig = {
-  /* config options here */
-  reactStrictMode: true,
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: "export", // Enables static export
+  basePath: "/exelentic", 
   images: {
     unoptimized: true,
   },
-  assetPrefix: isProd ? '/exelentic/' : '',
-  basePath: isProd ? '/exelentic' : '',
-  output: 'export'
 };
 
-export default nextConfig;
+module.exports = nextConfig;

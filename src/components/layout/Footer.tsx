@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Cog, ArrowUp } from "lucide-react"
+import { ArrowUp } from "lucide-react"
 import { useState, useEffect } from "react"
 
 export default function Footer() {
@@ -22,13 +22,13 @@ export default function Footer() {
     }
 
     return (
-        <footer className="w-full border-t bg-blue-900 text-white">
-            <div className="container flex flex-col gap-6 py-8 md:py-12 lg:flex-row lg:justify-between lg:py-16">
+        <footer className="w-full border-t bg-white text-primary">
+            <div className="container mx-auto flex flex-col gap-6 py-8 md:py-12 lg:flex-row lg:justify-between lg:py-16">
                 <div className="flex flex-col gap-4 lg:w-1/3 animate-fadeIn">
                     <Link href="/" className="flex items-center space-x-2">
                         <span className="inline-block font-bold text-primary text-xl">Exelentic</span>
                     </Link>
-                    <p className="text-blue-100">
+                    <p className="text-[#011826]">
                         Transforming business processes through intelligent automation. Reduce manual tasks, eliminate errors, and
                         focus on what matters most.
                     </p>
@@ -106,6 +106,7 @@ export default function Footer() {
                         ))}
                     </div>
                 </div>
+
                 <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4 lg:w-2/3">
                     {[
                         {
@@ -125,7 +126,7 @@ export default function Footer() {
                                 "Phone: +49 89 958990 281",
                                 <span key="email">
                                     Email:{" "}
-                                    <a href="mailto:info@exelentic.com" className="text-blue-300 hover:text-white">
+                                    <a href="mailto:info@exelentic.com" className="text-[#011826] hover:text-primary">
                                         info@exelentic.com
                                     </a>
                                 </span>,
@@ -150,7 +151,7 @@ export default function Footer() {
                                         style={{ animationDelay: `${sectionIndex * 200 + linkIndex * 100}ms` }}
                                     >
                                         {typeof link === "string" ? (
-                                            <Link href="#" className="text-blue-100 hover:text-white transition-colors duration-300">
+                                            <Link href="#" className="text-[#011826] hover:text-primary transition-colors duration-300">
                                                 {link}
                                             </Link>
                                         ) : (
@@ -163,12 +164,12 @@ export default function Footer() {
                     ))}
                 </div>
             </div>
-            <div className="border-t border-blue-800 py-6">
-                <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
-                    <p className="text-center text-sm text-blue-200 md:text-left animate-fadeIn">
+            <div className="border-t border-[#011826] py-6">
+                <div className="container mx-auto flex flex-col items-center justify-between gap-4 md:flex-row">
+                    <p className="text-center text-sm text-[#011826] md:text-left animate-fadeIn">
                         © {new Date().getFullYear()} Exelentic GmbH. All rights reserved.
                     </p>
-                    <p className="text-center text-sm text-blue-200 md:text-left animate-fadeIn animation-delay-500">
+                    <p className="text-center text-sm text-[#011826] md:text-left animate-fadeIn animation-delay-500">
                         Made with <span className="animate-pulse-subtle text-red-400">❤️</span> for businesses worldwide
                     </p>
                 </div>
@@ -177,7 +178,7 @@ export default function Footer() {
             {/* Scroll to top button */}
             <button
                 onClick={scrollToTop}
-                className={`fixed bottom-6 right-6 p-4 bg-blue-500 text-white rounded-full shadow-lg transition-all duration-300 ${showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+                className={`fixed bottom-6 right-6 p-4 bg-blue-500 text-white rounded-full shadow-lg transition-all cursor-pointer duration-300 ${showScrollTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
                     }`}
                 aria-label="Scroll to top"
             >

@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Clock, Repeat, Zap } from "lucide-react"
 import { useSectionVisibility } from "@/context/SectionVisibilityContext"
 import { HeroSvg } from "@/assets/svg"
 
@@ -19,7 +18,7 @@ export default function Hero() {
                 <div className="absolute top-0 -right-4 -z-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
                 <div className="absolute -bottom-8 left-20 -z-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
 
-                <div className="container mx-auto flex items-centr justify-center gap-6">
+                <div className="container mx-auto flex items-centr justify-center gap-20">
                     <Image src={HeroSvg} alt="" className={`${isVisible.hero ? "animate-slideInLeft" : "opacity-0"}`} />
 
                     <div className="flex flex-col gap-6 justify-center">
